@@ -11,10 +11,8 @@
     "nuxt": "^3.0.0-rc.11"
   },
   "dependencies": {
-    "@ccmdesign/ccm-ds": "^0.1.9",
-    "@pinia/nuxt": "^0.4.1",
+    "@ccmdesign/ccm-ds": "^0.2.1",
     "path": "^0.12.7",
-    "pinia": "^2.0.20",
     "sass": "^1.54.4"
   }
 }

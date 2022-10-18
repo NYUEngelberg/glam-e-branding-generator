@@ -19,23 +19,21 @@ export default defineNuxtConfig({
     ],
   },
   css: [
-    "@ccmdesign/ccm-ds/assets/css/00-resets/body-structure.css",
-    "@ccmdesign/ccm-ds/assets/css/00-resets/normalize.css",
-    "@ccmdesign/ccm-ds/assets/css/00-resets/reset.css",
-    "@ccmdesign/ccm-ds/assets/css/00-resets/utils.css",
-    "@ccmdesign/ccm-ds/assets/css/01-tokens/colors-base.css",
-    "@ccmdesign/ccm-ds/assets/css/01-tokens/scale.css",
-    "@ccmdesign/ccm-ds/assets/css/01-tokens/wrappers.css",
-    "@ccmdesign/ccm-ds/assets/css/01-tokens/theme.css",
-    "@ccmdesign/ccm-ds/assets/css/02-elements/typography.css",
-    "@ccmdesign/ccm-ds/assets/css/03-objects/grid.css",
-    "@ccmdesign/ccm-ds/assets/css/03-objects/cover.css",
-    "@ccmdesign/ccm-ds/assets/css/03-objects/frame.css",
-    "@ccmdesign/ccm-ds/assets/css/03-objects/switcher.css",
-    "@ccmdesign/ccm-ds/assets/css/03-objects/polarized.css",
-    "@ccmdesign/ccm-ds/assets/css/04-components/button-structure.css",
-    "@ccmdesign/ccm-ds/assets/css/04-components/button-visuals.css",
-    "@ccmdesign/ccm-ds/assets/css/04-components/button-icons.css",
+    '@ccmdesign/ccm-ds/assets/css/00-resets/body-structure.css',
+    '@ccmdesign/ccm-ds/assets/css/00-resets/normalize.css',
+    '@ccmdesign/ccm-ds/assets/css/00-resets/reset.css',
+    '@ccmdesign/ccm-ds/assets/css/01-tokens/colors-base.css',
+    '@ccmdesign/ccm-ds/assets/css/01-tokens/form.css',
+    '@ccmdesign/ccm-ds/assets/css/01-tokens/scale.css',
+    '@ccmdesign/ccm-ds/assets/css/01-tokens/theme.css',
+    '@ccmdesign/ccm-ds/assets/css/01-tokens/utils.css',
+    '@ccmdesign/ccm-ds/assets/css/02-elements/typography.css',
+    '@ccmdesign/ccm-ds/assets/css/03-objects/cover.css',
+    '@ccmdesign/ccm-ds/assets/css/03-objects/frame.css',
+    '@ccmdesign/ccm-ds/assets/css/03-objects/grid.css',
+    '@ccmdesign/ccm-ds/assets/css/03-objects/polarized.css',
+    '@ccmdesign/ccm-ds/assets/css/03-objects/stack.css',
+    '@ccmdesign/ccm-ds/assets/css/03-objects/switcher.css',
   ],
   components: {
     "dirs": [
@@ -58,17 +56,4 @@ export default defineNuxtConfig({
       "~/components"
     ]
   },
-  modules: [
-    [
-      "@pinia/nuxt",
-      {
-        autoImports: [
-          // automatically imports `usePinia()`
-          "defineStore",
-          // automatically imports `usePinia()` as `usePiniaStore()`
-          ["defineStore", "definePiniaStore"],
-        ],
-      },
-    ],
-  ],
 });
