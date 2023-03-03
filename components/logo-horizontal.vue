@@ -64,34 +64,6 @@ const { left, right, center } = toRefs(props)
 
 <style lang="scss" scoped>
 
-.logo-component { visibility: hidden; }
-
-[left="left-1"] #left-1 { visibility: visible; }
-[left="left-2"] #left-2 { visibility: visible; }
-[left="left-3"] #left-3 { visibility: visible; }
-[left="left-4"] #left-4 { visibility: visible; }
-[left="left-5"] #left-5 { visibility: visible; }
-
-[right="right-1"] #right-1 { visibility: visible; }
-[right="right-2"] #right-2 { visibility: visible; }
-[right="right-3"] #right-3 { visibility: visible; }
-[right="right-4"] #right-4 { visibility: visible; }
-[right="right-5"] #right-5 { visibility: visible; }
-
-[center="center-1"] #center-1 { visibility: visible; }
-[center="center-2"] #center-2 { visibility: visible; }
-[center="center-3"] #center-3 { visibility: visible; }
-[center="center-4"] #center-4 { visibility: visible; }
-[center="center-5"] #center-5 { visibility: visible; }
-[center="center-6"] #center-6 { visibility: visible; }
-[center="center-7"] #center-7 { visibility: visible; }
-[center="center-8"] #center-8 { visibility: visible; }
-[center="center-9"] #center-9 { visibility: visible; }
-
-
-// #icon * { fill: var(--icon); }
-// #typography * { fill: var(--text); }
-
 #icon *,
 #typography * { transition: fill .3s ease; }
 

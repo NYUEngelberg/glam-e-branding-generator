@@ -2,6 +2,7 @@
   <div :color="color[2]">
     <base-section size="m">
       <center-l class="text-align:center">
+        <h3 class="padding-bottom:s2">Choose a color scheme and generate a logo</h3>
         <cluster-l class="controls">
           <div class="color-group" color="1" @click="setColors('#00f47b', '#ffffff', 'base')">
             <span></span>
@@ -30,13 +31,28 @@
     <base-section class="logo-section" :color="color[2]">
       <center-l class="text-align:center">
         <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="color"/>
-        <base-button :color="color[2] == '#000000' || color[2] == 'base' ? 'white' : 'base'" @click="downloadSVG('#logo-vertical')">Download Logo</base-button>
+        <base-button :color="color[2] == '#000000' || color[2] == 'base' ? 'white' : 'base'" @click="downloadSVG('#logo-vertical')">Download Logo File (.svg)</base-button>
       </center-l>
     </base-section>
     <base-section size="l" class="logo-section" :color="color[2]">
       <center-l class="text-align:center">
         <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="color"/>
-        <base-button :color="color[2] == '#000000' || color[2] == 'base' ? 'white' : 'base'" @click="downloadSVG('#logo-horizontal')">Download Logo</base-button>
+        <base-button :color="color[2] == '#000000' || color[2] == 'base' ? 'white' : 'base'" @click="downloadSVG('#logo-horizontal')">Download Logo File (.svg)</base-button>
+      </center-l>
+    </base-section>
+    <base-section>
+      <center-l>
+        <cluster-l class="justify-content:center">
+          <a href="https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/" target="_blank" class="button">Download Font</a>
+          <a href="#" target="_blank" class="button">Download Letterhead</a>
+          <a href="#" target="_blank" class="button">Download Branding Guidelines</a>
+        </cluster-l>
+      </center-l>
+    </base-section>
+
+    <base-section color="base">
+      <center-l>
+        <logo-web :color="color" />
       </center-l>
     </base-section>
   </div>
@@ -97,14 +113,11 @@ const setColors = (icon, text, bg) => {
     --text: var(--light-color);
   }
 
-  .button {
-    --button-border-radius: 32px;  
-  }
+  .button { --button-border-radius: 32px; }
 
-  .logo-section { 
-    /* background-color: var(--bg);  */
-    transition: background-color .4s ease;
-  }
+  .logo-section { transition: background-color .4s ease; }
+
+  .justify-content\:center { justify-content: center; }
 
   .color-group {
     padding: 12px;
