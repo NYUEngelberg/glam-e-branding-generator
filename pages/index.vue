@@ -23,7 +23,9 @@
           <input type="range" id="size" name="size" v-model="settings.attr[3]" min="100" max="200" :disabled="settings.attr[0] == 'color'">
           <p class="sidebar__title">Pattern position</p>
           <div class="position-buttons">
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top left'" :class="{'active': settings.attr[4] == 'top left'}">1</base-button>
+            <base-button icon-before="arrow_forward"></base-button>
+            
+            <!-- <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top left'" :class="{'active': settings.attr[4] == 'top left'}">1</base-button>
             <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center top'" :class="{'active': settings.attr[4] == 'center top'}">2</base-button>
             <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top right'" :class="{'active': settings.attr[4] == 'top right'}">3</base-button>
             <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center left'" :class="{'active': settings.attr[4] == 'center left'}">4</base-button>
@@ -31,10 +33,11 @@
             <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center right'" :class="{'active': settings.attr[4] == 'center right'}">6</base-button>
             <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom left'" :class="{'active': settings.attr[4] == 'bottom left'}">7</base-button>
             <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center bottom'" :class="{'active': settings.attr[4] == 'center bottom'}">8</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom right'" :class="{'active': settings.attr[4] == 'bottom right'}">9</base-button>
+            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom right'" :class="{'active': settings.attr[4] == 'bottom right'}">9</base-button> -->
           </div>
           <base-button visual="secondary" href="#" target="_blank" class="button">Download icons</base-button>
           <base-button visual="secondary" href="#" target="_blank" class="button">Branding Guidelines</base-button>
+          <span class="icon">expand_more</span>
       </section>
       <section class="content">
         <base-section class="logo-section" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
