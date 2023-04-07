@@ -2,48 +2,49 @@
   <div :color="settings.attr[2]">
     <section> 
       <cluster-l class="main-content">
-        <section class="sidebar">
+        <section class="sidebar" :class="{'sidebar--expanded':status.accordion}">
           <base-section class="logo-section" :color="settings.attr[2]" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto;`">
             <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="mask"/>
           </base-section>
           <base-button visual="secondary" @click="generateRandomList">Generate Logo</base-button>
           <base-button visual="unstyled" icon-after="expand_more" class="accordion-trigger" @click.prevent="status.accordion = !status.accordion">Customize Logo</base-button>
-          <p class="sidebar__title">Choose color pattern</p>
-          <base-button visual="secondary" @click="generateRandomList">Generate Icon</base-button>
-          <cluster-l class="controls">
-            <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF')">
+          <div class="sidebar__spacer">
+            <div class="sidebar__accordion">
+              <p class="sidebar__title">Choose color pattern</p>
+              <base-button visual="secondary" @click="generateRandomList">Generate Icon</base-button>
+              <cluster-l class="controls">
+                <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF')">
+                </div>
+                <div class="color-group" color="2" @click="setColors('bg', 'bg-2', '#FFF' )">
+                </div>
+                <div class="color-group" color="3" @click="setColors('color', 'var(--base-color)', '#FFF')">
+                  <span></span>
+                </div>
+              </cluster-l>
+              <p class="sidebar__title">Pattern size</p>
+              <input type="range" id="size" name="size" v-model="settings.attr[3]" min="100" max="200" :disabled="settings.attr[0] == 'color'">
+              <p class="sidebar__title">Pattern position</p>
+              <div class="position-buttons">
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top left'" :class="{'active': settings.attr[4] == 'top left'}" icon-before="north_west"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center top'" :class="{'active': settings.attr[4] == 'center top'}" icon-before="north"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top right'" :class="{'active': settings.attr[4] == 'top right'}" icon-before="north_east"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center left'" :class="{'active': settings.attr[4] == 'center left'}" icon-before="west"></base-button>
+                <base-button visual="secondary" class="position-button position-button--center" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center'" :class="{'active': settings.attr[4] == 'center'}"><span></span></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center right'" :class="{'active': settings.attr[4] == 'center right'}" icon-before="east"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom left'" :class="{'active': settings.attr[4] == 'bottom left'}" icon-before="south_west"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center bottom'" :class="{'active': settings.attr[4] == 'center bottom'}" icon-before="south"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom right'" :class="{'active': settings.attr[4] == 'bottom right'}" icon-before="south_east"></base-button> 
+              </div>
             </div>
-            <div class="color-group" color="2" @click="setColors('bg', 'bg-2', '#FFF' )">
-            </div>
-            <div class="color-group" color="3" @click="setColors('color', 'var(--base-color)', '#FFF')">
-              <span></span>
-            </div>
-          </cluster-l>
-          <p class="sidebar__title">Pattern size</p>
-          <input type="range" id="size" name="size" v-model="settings.attr[3]" min="100" max="200" :disabled="settings.attr[0] == 'color'">
-          <p class="sidebar__title">Pattern position</p>
-          <div class="position-buttons">
-            <base-button icon-before="arrow_forward"></base-button>
-            
-            <!-- <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top left'" :class="{'active': settings.attr[4] == 'top left'}">1</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center top'" :class="{'active': settings.attr[4] == 'center top'}">2</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top right'" :class="{'active': settings.attr[4] == 'top right'}">3</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center left'" :class="{'active': settings.attr[4] == 'center left'}">4</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center'" :class="{'active': settings.attr[4] == 'center'}">5</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center right'" :class="{'active': settings.attr[4] == 'center right'}">6</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom left'" :class="{'active': settings.attr[4] == 'bottom left'}">7</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center bottom'" :class="{'active': settings.attr[4] == 'center bottom'}">8</base-button>
-            <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom right'" :class="{'active': settings.attr[4] == 'bottom right'}">9</base-button> -->
           </div>
           <base-button visual="secondary" href="#" target="_blank" class="button">Download icons</base-button>
           <base-button visual="secondary" href="#" target="_blank" class="button">Branding Guidelines</base-button>
-          <span class="icon">expand_more</span>
       </section>
       <section class="content">
         <base-section class="logo-section" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
           <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="bg"/>
         </base-section>
-        <base-section class="logo-section" data-name="logo-mask-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
+        <base-section class="logo-section" data-name="logo-mask-horizontal">
           <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="mask"/>
         </base-section>  
         <base-section class="logo-section" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
@@ -137,6 +138,10 @@ const status = reactive({
 
   .button[visual="unstyled"] { 
     --button-font-weight: 300;
+    justify-content: center;
+    &::after {
+      font-weight: 400;
+    }
   }
 
   .logo-section { 
@@ -182,9 +187,11 @@ const status = reactive({
   .main-content {
     width: 100%;
     height: 100vh;
+    flex-wrap: nowrap;
   }
 
   .sidebar {
+    flex-shrink: 0;
     width: 300px;
     padding: var(--s1) var(--s2);
     height: 100%;
@@ -201,6 +208,35 @@ const status = reactive({
       font-weight: 700;
       color: hsla(var(--base-hsl), 0.6);
     }
+
+    .accordion-trigger::after {
+      transition: all 0.3s ease-out;
+    }
+
+
+    .sidebar__accordion {
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      gap: var(--s1);
+      overflow: hidden;
+      height: 0;
+      transition: height 0.3s ease-out;
+    }
+
+    .sidebar--expanded {
+      .sidebar__accordion {
+        height: 100%;
+      }
+      .accordion-trigger::after {
+        transform: rotateX(180deg);
+      }
+    }
+
+  .sidebar__spacer {
+    flex-grow: 1;
+  }
 
   .content {
     flex-grow: 1;
@@ -306,10 +342,24 @@ const status = reactive({
       justify-content: center;
       align-items: center;
       transition: all 0.2s ease-out;
+      height: 40px;
+      span {
+        width: 14px;
+        height: 14px;
+        display: block;
+        background-color:  hsla(var(--button-hsl), 0.6);
+        border-radius: 50%;
+      }
       &.active,
       &:hover {
         color: hsla(var(--button-hsl), 0.8);
         border-color: hsla(var(--button-hsl), 0.5);
+        span {
+          background-color:  hsla(var(--button-hsl), 0.8);
+        }
+      }
+      &::before {
+        font-weight: 700;
       }
     }
 </style>
