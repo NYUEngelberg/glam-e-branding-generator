@@ -3,8 +3,8 @@
     <section> 
       <cluster-l class="main-content">
         <section class="sidebar" :class="{'sidebar--expanded':status.accordion}">
-          <base-section class="logo-section" :color="settings.attr[2]" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto;`">
-            <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="mask"/>
+          <base-section class="logo-section">
+            <logo-horizontal  :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
           </base-section>
           <base-button visual="secondary" @click="randomizeAll">Generate Logo</base-button>
           <base-button visual="unstyled" icon-after="expand_more" class="accordion-trigger" @click.prevent="status.accordion = !status.accordion">Customize Logo</base-button>
@@ -41,11 +41,11 @@
           <base-button visual="secondary" href="#" target="_blank" class="button">Branding Guidelines</base-button>
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
-        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
           <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
         </base-section>
         <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-horizontal">
-          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="mask"/>
+          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
         </base-section>  
         <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
           <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
