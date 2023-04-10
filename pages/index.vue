@@ -6,12 +6,12 @@
           <base-section class="logo-section" :color="settings.attr[2]" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto;`">
             <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="mask"/>
           </base-section>
-          <base-button visual="secondary" @click="generateRandomList">Generate Logo</base-button>
+          <base-button visual="secondary" @click="randomizeAll">Generate Logo</base-button>
           <base-button visual="unstyled" icon-after="expand_more" class="accordion-trigger" @click.prevent="status.accordion = !status.accordion">Customize Logo</base-button>
           <div class="sidebar__spacer">
             <div class="sidebar__accordion">
               <p class="sidebar__title">Choose color pattern</p>
-              <base-button visual="secondary" @click="generateRandomList">Generate Icon</base-button>
+              <base-button visual="secondary" @click="generateRandomLogo">Generate Icon</base-button>
               <cluster-l class="controls">
                 <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF')">
                 </div>
@@ -37,22 +37,36 @@
               </div>
             </div>
           </div>
-          <base-button visual="secondary" href="#" target="_blank" class="button">Download icons</base-button>
+          <base-button visual="secondary" @click="downloadLogosAsZip" target="_blank" class="button">Download icons</base-button>
           <base-button visual="secondary" href="#" target="_blank" class="button">Branding Guidelines</base-button>
       </section>
-      <section class="content">
-        <base-section class="logo-section" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
-          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="bg"/>
+      <section class="content" v-if="settings.attr[0] == 'bg'">
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
+          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
         </base-section>
-        <base-section class="logo-section" data-name="logo-mask-horizontal">
-          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="mask"/>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-horizontal">
+          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="mask"/>
         </base-section>  
-        <base-section class="logo-section" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
-          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="bg"/>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
+          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
         </base-section>
-        <base-section class="logo-section" data-name="logo-mask-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
-          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr" type="mask"/>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
+          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="mask"/>
         </base-section> 
+      </section>
+      <section class="content" v-else>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-color:${settings.attr[1]};`">
+          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" type="bg"/>
+        </base-section>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-color:${settings.attr[2]};`">
+          <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" type="bg"/>
+        </base-section>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[1]};`">
+          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" type="bg"/>
+        </base-section>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[2]};`">
+          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" type="bg"/>
+        </base-section>
       </section>
     </cluster-l>
 
@@ -64,10 +78,18 @@
 
 <script setup>
 import { ref } from 'vue'
+import domtoimage from 'dom-to-image';
+import JSZip from 'jszip';
 
 const list1 = ['left-1', 'left-2', 'left-3', 'left-4', 'left-5'];
 const list2 = ['right-1', 'right-2', 'right-3', 'right-4', 'right-5'];
 const list3 = ['center-1', 'center-2', 'center-3', 'center-4', 'center-5', 'center-6', 'center-7', 'center-8', 'center-9'];
+const patternList = [
+  ['bg', 'bg-1', '#FFF'],
+  ['bg', 'bg-2', '#FFF'],
+  ['color', 'var(--base-color)', '#FFF']
+]
+const positionList = ['top left', 'center top', 'top right', 'center left', 'center', 'center right', 'bottom left', 'center bottom', 'bottom right']
 const randomList = ref([])
 
 const settings = reactive({
@@ -86,7 +108,7 @@ const downloadSVG = (x) => {
   link.click();
 }
 
-const generateRandomList = () => {
+const generateRandomLogo = () => {
   const newItem1 = list1[Math.floor(Math.random() * list1.length)]
   const newItem2 = list2[Math.floor(Math.random() * list2.length)]
   const newItem3 = list3[Math.floor(Math.random() * list3.length)]
@@ -103,6 +125,55 @@ const status = reactive({
 	accordion: false,
 });
 
+const randomizeAll = () => {
+  settings.attr = patternList[Math.floor(Math.random() * patternList.length)]
+  settings.attr.push(Math.floor(Math.random() * 101) + 100)
+  settings.attr.push(positionList[Math.floor(Math.random() * positionList.length)])
+  generateRandomLogo()
+}
+
+const generatePNGs = async () => {
+  const logoElements = document.querySelectorAll('.logo-section--downloadable');
+  const pngFiles = [];
+  for (const logoElement of logoElements) {
+    const fileName = logoElement.getAttribute('data-name') + '.png';
+    const dataUrl = await domtoimage.toPng(logoElement);
+    console.log('aqui')
+    pngFiles.push({ fileName, dataUrl });
+  }
+  return pngFiles;
+};
+
+const generateSVGs = async () => {
+  const logoElements = document.querySelectorAll('.logo-section--downloadable');
+  const svgFiles = [];
+  for (const logoElement of logoElements) {
+    const fileName = logoElement.getAttribute('data-name') + '.svg';
+    const dataUrl = await domtoimage.toSvg(logoElement);
+    svgFiles.push({ fileName, dataUrl });
+  }
+  return svgFiles;
+};
+
+const downloadLogosAsZip = async () => {
+  const pngFiles = await generatePNGs();
+  const svgFiles = await generateSVGs();
+  const zip = new JSZip();
+
+  pngFiles.forEach(({ fileName, dataUrl }) => {
+    zip.file(fileName, dataUrl.split('base64,')[1], { base64: true });
+  });
+
+  svgFiles.forEach(({ fileName, dataUrl }) => {
+    zip.file(fileName, dataUrl.split('charset=utf-8,')[1], { base64: false });
+  });
+
+  const zipBlob = await zip.generateAsync({ type: 'blob' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(zipBlob);
+  link.download = 'logos.zip';
+  link.click();
+};
 
 </script>
 
@@ -148,6 +219,12 @@ const status = reactive({
     transition: all .2s ease-out; 
     width: 100%;
     padding: 0;
+    &:first-child {
+      border-bottom: 1px solid hsla(var(--white-hsl),0.2);
+    }
+    &:nth-child(2){
+      border-bottom: 1px solid hsla(var(--base-hsl),0.2);
+    }
   }
 
   .justify-content\:center { justify-content: center; }
