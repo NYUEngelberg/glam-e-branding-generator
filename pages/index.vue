@@ -3,9 +3,9 @@
     <section> 
       <cluster-l class="main-content">
         <section class="sidebar" :class="{'sidebar--expanded':status.accordion}">
-          <base-section class="logo-section">
-            <logo-horizontal  :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
-          </base-section>
+          <base-section class="logo-section" data-name="logo-mask-vertical">
+            <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
+          </base-section> 
           <base-button visual="secondary" @click="randomizeAll">Generate Logo</base-button>
           <base-button visual="unstyled" icon-after="expand_more" class="accordion-trigger" @click.prevent="status.accordion = !status.accordion">Customize Logo</base-button>
           <div class="sidebar__spacer">
@@ -47,11 +47,11 @@
         <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-horizontal">
           <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
         </base-section>  
-        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
           <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
         </base-section>
-        <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: ${settings.attr[3]}% auto; background-position: ${settings.attr[4]};`">
-          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="mask"/>
+        <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-vertical">
+          <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
         </base-section> 
       </section>
       <section class="content" v-else>
@@ -269,7 +269,7 @@ const downloadLogosAsZip = async () => {
 
   .sidebar {
     flex-shrink: 0;
-    width: 300px;
+    width: 360px;
     padding: var(--s1) var(--s2);
     height: 100%;
     display: flex;
@@ -313,6 +313,7 @@ const downloadLogosAsZip = async () => {
 
   .sidebar__spacer {
     flex-grow: 1;
+    width: 100%;
   }
 
   .content {
