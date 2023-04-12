@@ -1,7 +1,7 @@
 <template>
   <div class="logo-container">
     <div class="logo-builder" :left="left" :right="right" style="position: relative; height: 100%; width: 275px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-      <div class="logo-mask" :style="`background-image: url(/images/${bg}.png); background-size: ${bg}%; background-position: ${position}; width: 100%; height: auto; object-fit: cover; clip-path: url('#clipvertical'); aspect-ratio: 2.3/1; transition: all 0.2s ease-out;`"  v-if="type == 'mask'"></div>
+      <div class="logo-mask" :style="`background-image: url(/images/${bg}.png); background-size: ${size}% auto; background-position: ${position}; width: 100%; height: auto; object-fit: cover; clip-path: url('#clipvertical'); aspect-ratio: 2.3/1; transition: all 0.2s ease-out;`"  v-if="type == 'mask'"></div>
       <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"  v-if="type == 'mask'">
         <defs>
           <clipPath id="clipvertical">
