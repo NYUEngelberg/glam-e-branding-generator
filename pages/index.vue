@@ -5,10 +5,10 @@
         <section class="sidebar" :class="{'sidebar--expanded':status.accordion}">
           <div class="content__container">
             <base-section class="logo-section" data-name="logo-mask-vertical" v-if="settings.attr[0] == 'bg'">
-              <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
+              <logo-horizontal-mask :dl="false" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]"/>
             </base-section> 
-            <base-section v-else class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[2]};`">
-              <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" type="bg"/>
+            <base-section v-else class="logo-section" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[2]};`">
+              <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" />
             </base-section>
           </div>
           <base-button visual="secondary" @click="randomizeAll">Generate Logo</base-button>
@@ -18,27 +18,27 @@
               <p class="sidebar__title">Choose color pattern</p>
               <base-button visual="secondary" @click="generateRandomLogo">Generate Icon</base-button>
               <cluster-l class="controls">
-                <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF')">
+                <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF', ['png'])">
                 </div>
-                <div class="color-group" color="2" @click="setColors('bg', 'bg-2', '#FFF' )">
+                <div class="color-group" color="2" @click="setColors('bg', 'bg-2', '#FFF', ['png'])">
                 </div>
-                <div class="color-group" color="3" @click="setColors('color', 'var(--base-color)', '#FFF')">
+                <div class="color-group" color="3" @click="setColors('color', 'var(--base-color)', '#FFF', ['png', 'svg'])">
                   <span></span>
                 </div>
               </cluster-l>
               <p class="sidebar__title">Pattern size</p>
-              <input type="range" id="size" name="size" v-model="settings.attr[3]" min="100" max="200" :disabled="settings.attr[0] == 'color'">
+              <input type="range" id="size" name="size" v-model="settings.attr[4]" min="100" max="200" :disabled="settings.attr[0] == 'color'">
               <p class="sidebar__title">Pattern position</p>
               <div class="position-buttons">
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top left'" :class="{'active': settings.attr[4] == 'top left'}" icon-before="north_west"></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center top'" :class="{'active': settings.attr[4] == 'center top'}" icon-before="north"></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'top right'" :class="{'active': settings.attr[4] == 'top right'}" icon-before="north_east"></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center left'" :class="{'active': settings.attr[4] == 'center left'}" icon-before="west"></base-button>
-                <base-button visual="secondary" class="position-button position-button--center" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center'" :class="{'active': settings.attr[4] == 'center'}"><span></span></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center right'" :class="{'active': settings.attr[4] == 'center right'}" icon-before="east"></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom left'" :class="{'active': settings.attr[4] == 'bottom left'}" icon-before="south_west"></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'center bottom'" :class="{'active': settings.attr[4] == 'center bottom'}" icon-before="south"></base-button>
-                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[4] = 'bottom right'" :class="{'active': settings.attr[4] == 'bottom right'}" icon-before="south_east"></base-button> 
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'top left'" :class="{'active': settings.attr[5] == 'top left'}" icon-before="north_west"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'center top'" :class="{'active': settings.attr[5] == 'center top'}" icon-before="north"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'top right'" :class="{'active': settings.attr[5] == 'top right'}" icon-before="north_east"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'center left'" :class="{'active': settings.attr[5] == 'center left'}" icon-before="west"></base-button>
+                <base-button visual="secondary" class="position-button position-button--center" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'center'" :class="{'active': settings.attr[5] == 'center'}"><span></span></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'center right'" :class="{'active': settings.attr[5] == 'center right'}" icon-before="east"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'bottom left'" :class="{'active': settings.attr[5] == 'bottom left'}" icon-before="south_west"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'center bottom'" :class="{'active': settings.attr[5] == 'center bottom'}" icon-before="south"></base-button>
+                <base-button visual="secondary" class="position-button" :disabled="settings.attr[0] == 'color'" @click="settings.attr[5] = 'bottom right'" :class="{'active': settings.attr[5] == 'bottom right'}" icon-before="south_east"></base-button> 
               </div>
             </div>
           </div>
@@ -47,45 +47,45 @@
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
-            <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
+          <base-section class="logo-section | logo--png" data-name="logo-horizontal-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
+            <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]"/>
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-horizontal">
-            <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
+          <base-section class="logo-section" data-name="logo-mask-horizontal">
+            <logo-horizontal-clip :format="settings.attr[3]" name="logo-horizontal-mask" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]"/>
           </base-section>  
         </div>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
-            <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" type="bg"/>
+          <base-section class="logo-section | logo--png" data-name="logo-vertical-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
+            <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" />
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-vertical">
-            <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[3]" :position="settings.attr[4]" type="mask"/>
+          <base-section class="logo-section" data-name="logo-mask-vertical">
+            <logo-vertical-clip  :format="settings.attr[3]" name="logo-vertical-mask" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]" />
           </base-section> 
         </div>
       </section>
       <section class="content" v-else>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-horizontal" :style="`background-color:${settings.attr[1]};`">
-            <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" type="bg"/>
+          <base-section class="logo-section" data-name="logo-bg-horizontal" :style="`background-color:${settings.attr[1]};`">
+            <logo-horizontal :format="settings.attr[3]" name="logo-horizontal-white" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" />
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-horizontal" :style="`background-color:${settings.attr[2]};`">
-            <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" type="bg"/>
+          <base-section class="logo-section" data-name="logo-mask-horizontal" :style="`background-color:${settings.attr[2]};`">
+            <logo-horizontal :format="settings.attr[3]" name="logo-horizontal-black" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" />
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[1]};`">
-            <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" type="bg"/>
+          <base-section class="logo-section" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[1]};`">
+            <logo-vertical :format="settings.attr[3]" name="logo-vertical-white" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" />
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section logo-section--downloadable" data-name="logo-mask-vertical" :style="`background-color:${settings.attr[2]};`">
-            <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" type="bg"/>
+          <base-section class="logo-section" data-name="logo-mask-vertical" :style="`background-color:${settings.attr[2]};`">
+            <logo-vertical :format="settings.attr[3]" name="logo-vertical-black" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" />
           </base-section>
         </div>
       </section>
@@ -106,27 +106,28 @@ const list1 = ['left-1', 'left-2', 'left-3', 'left-4', 'left-5'];
 const list2 = ['right-1', 'right-2', 'right-3', 'right-4', 'right-5'];
 const list3 = ['center-1', 'center-2', 'center-3', 'center-4', 'center-5', 'center-6', 'center-7', 'center-8', 'center-9'];
 const patternList = [
-  ['bg', 'bg-1', '#FFF'],
-  ['bg', 'bg-2', '#FFF'],
-  ['color', 'var(--base-color)', '#FFF']
+  ['bg', 'bg-1', '#FFF', ['png']],
+  ['bg', 'bg-2', '#FFF', ['png']],
+  ['color', 'var(--base-color)', '#FFF', ['png', 'svg']]
 ]
 const positionList = ['top left', 'center top', 'top right', 'center left', 'center', 'center right', 'bottom left', 'center bottom', 'bottom right']
 const randomList = ref([])
 
 const settings = reactive({
-	attr: ['bg', 'bg-1', '#FFF', '150', 'center'],
+	attr: ['bg', 'bg-1', '#FFF', ['png'], '150', 'center'],
 });
 
 const downloadSVG = (x) => {
-  const svg = document.querySelector(x);
+  //const svg = document.querySelector(x);
   const serializer = new XMLSerializer();
-  const svgString = serializer.serializeToString(svg);
+  const svgString = serializer.serializeToString(x);
   const blob = new Blob([svgString], { type: 'image/svg+xml' });
   const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
+  return blob;
+  /*const link = document.createElement('a');
   link.href = url;
   link.download = 'glam-e-logo.svg';
-  link.click();
+  link.click();*/
 }
 
 const generateRandomLogo = () => {
@@ -136,10 +137,11 @@ const generateRandomLogo = () => {
   randomList.value = [newItem1, newItem2, newItem3]
 }
 
-const setColors = (type, bg, color) => {
+const setColors = (type, bg, color, formats) => {
   settings.attr[0] = type
   settings.attr[1] = bg
   settings.attr[2] = color
+  settings.attr[4] = formats
 }
 
 const status = reactive({
@@ -154,24 +156,24 @@ const randomizeAll = () => {
 }
 
 const generatePNGs = async () => {
-  const logoElements = document.querySelectorAll('.logo-section--downloadable');
+  const logoElements = document.querySelectorAll('.logo--png');
   const pngFiles = [];
   for (const logoElement of logoElements) {
     const fileName = logoElement.getAttribute('data-name') + '.png';
+    console.log(fileName)
     let dataUrl = await domtoimage.toPng(logoElement);
-    dataUrl = dataUrl.replaceAll('%23','#');
     pngFiles.push({ fileName, dataUrl });
   }
   return pngFiles;
 };
 
 const generateSVGs = async () => {
-  const logoElements = document.querySelectorAll('.logo-section--downloadable');
+  const logoElements = document.querySelectorAll('.logo--svg');
   const svgFiles = [];
   for (const logoElement of logoElements) {
     const fileName = logoElement.getAttribute('data-name') + '.svg';
-    let dataUrl = await domtoimage.toSvg(logoElement);
-    dataUrl = dataUrl.replaceAll('%23','#');
+    let dataUrl = await downloadSVG(logoElement);
+    console.log(fileName, dataUrl)
     svgFiles.push({ fileName, dataUrl });
   }
   return svgFiles;
@@ -187,7 +189,8 @@ const downloadLogosAsZip = async () => {
   });
 
   svgFiles.forEach(({ fileName, dataUrl }) => {
-    zip.file(fileName, dataUrl.split('charset=utf-8,')[1], { base64: false });
+    //zip.file(fileName, dataUrl.split('charset=utf-8,')[1], { base64: false });
+    zip.file(fileName, dataUrl, { base64: false });
   });
 
   const zipBlob = await zip.generateAsync({ type: 'blob' });
@@ -381,6 +384,7 @@ const downloadLogosAsZip = async () => {
   .logo-builder {
     width: min(50%, 350px);
     position: relative;
+    display: flex;
   }
 
   input[type="range"] {
@@ -468,4 +472,8 @@ const downloadLogosAsZip = async () => {
         font-weight: 700;
       }
     }
+
+  .hidden {
+    display: none;
+  }
 </style>

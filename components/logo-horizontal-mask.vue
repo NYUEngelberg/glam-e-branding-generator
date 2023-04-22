@@ -1,0 +1,118 @@
+<template>
+  <div class="logo-container">
+    <div class="logo-builder" style="width: 100%;">
+      <svg :id="{'logo-horizontal-mask': dl}" class="logo" :class="{'logo-section--downloadable': dl}" data-name="logo-horizontal-mask" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 391.77 72" :style="`width: 100%; background-image: url('/images/${bg}.png'); background-size: ${size}% auto; background-position: ${position};`">
+        <mask id="horizontalMask">
+          <rect x="0" y="0" width="100%" height="100%" fill="#FFF" />
+          <g id="icon">
+            <path    v-if="center == 'center-9'" fill="#000" class="logo-component" id="center-9" d="m64.1,56.5l-26.8-36.2h54.1l-27.3,36.2Zm-8.9-27.2l9,12.1,9.1-12.1s-18.1,0-18.1,0Z"/>
+            <polygon v-if="center == 'center-8'" fill="#000" class="logo-component" id="center-8" points="68.8 36.7 87 25.5 82.3 17.8 68.8 26.1 68.8 14.7 59.8 14.7 59.8 26.1 46.3 17.8 41.5 25.5 59.8 36.7 59.8 37.6 41.5 48.9 46.3 56.5 59.8 48.2 59.8 59.7 68.8 59.7 68.8 48.2 82.3 56.5 87 48.9 68.8 37.6 68.8 36.7"/>
+            <polygon v-if="center == 'center-7'" fill="#000" class="logo-component" id="center-7" points="68.8 45.5 68.8 37.8 89.5 22.2 84.1 15 64.5 29.7 44.6 15 39.2 22.2 59.8 37.5 59.8 45.3 44.6 34 39.2 41.2 64.6 60 89.5 41.2 84.1 34 68.8 45.5"/>
+            <path    v-if="center == 'center-6'" fill="#000" class="logo-component" id="center-6" d="m86.9,32.7v-9h-9.1v-9.1h-9v9.1h-8.9v-9.1h-9v9.1h-9.1v9h9.1v8.9h-9.1v9h9.1v9.1h9v-9.1h8.9v9.1h9v-9.1h9.1v-9h-9.1v-8.9s9.1,0,9.1,0Zm-18.1,8.9h-8.9v-8.9h8.9v8.9Z"/>
+            <path    v-if="center == 'center-5'" fill="#000" class="logo-component" id="center-5" d="m86.9,59.6h-45.1V14.6h45.1s0,45,0,45Zm-36.1-9h27.1v-27h-27.1v27Z"/>
+            <polygon v-if="center == 'center-4'" fill="#000" class="logo-component" id="center-4" points="89.5 21.8 84.1 14.7 64.5 29.4 44.6 14.6 39.2 21.9 59.8 37.1 59.8 59.6 68.8 59.6 68.8 37.4 89.5 21.8"/>
+            <polygon v-if="center == 'center-3'" fill="#000" class="logo-component" id="center-3" points="87 21.5 80.7 15.1 64.4 31.2 48.1 15.1 41.7 21.5 57.9 37.5 41.7 53.4 48.1 59.8 64.4 43.8 80.7 59.8 87 53.4 70.8 37.5 87 21.5"/>
+            <polygon v-if="center == 'center-2'" fill="#000" class="logo-component" id="center-2" points="80.3 39.3 86.7 32.9 68.6 15 59.7 15 41.7 32.9 48.1 39.3 59.5 27.9 59.5 51 50.7 51 50.7 60 77.7 60 77.7 51 68.5 51 68.5 27.6 80.3 39.3"/>
+            <polygon v-if="center == 'center-1'" fill="#000" class="logo-component" id="center-1" points="71 50.6 86.6 34.8 80.2 28.5 68.8 40.1 68.8 14.6 59.8 14.6 59.8 40.3 48.1 28.5 41.7 34.8 57.4 50.6 41.7 50.6 41.7 59.6 86.7 59.6 86.7 50.6 71 50.6"/>
+            <polygon v-if="left == 'left-5'"     fill="#000" class="logo-component" id="left-5" points="14.7 5.6 14.7 14.6 14.7 23.6 14.7 32.6 5.7 32.6 5.7 41.6 14.7 41.6 14.7 50.6 14.7 59.6 14.7 68.6 23.7 68.6 32.7 68.6 32.7 59.6 23.7 59.6 23.7 50.6 23.7 41.6 23.7 32.6 23.7 23.6 23.7 14.6 32.7 14.6 32.7 5.6 23.7 5.6 14.7 5.6"/>
+            <polygon v-if="right == 'right-5'"   fill="#000" class="logo-component" id="right-5" points="113.7 68.6 113.7 59.6 113.7 50.6 113.7 41.6 122.7 41.6 122.7 32.6 113.7 32.6 113.7 23.6 113.7 14.6 113.7 5.6 104.7 5.6 95.7 5.6 95.7 14.6 104.7 14.6 104.7 23.6 104.7 32.6 104.7 41.6 104.7 50.6 104.7 59.6 95.7 59.6 95.7 68.6 104.7 68.6 113.7 68.6"/>
+            <polygon v-if="left == 'left-4'"     fill="#000" class="logo-component" id="left-4" points="14.7 5.6 14.7 14.6 5.7 14.6 5.7 23.6 14.7 23.6 14.7 32.6 14.7 32.7 5.7 32.7 5.7 41.7 14.7 41.7 14.7 50.6 14.7 50.7 5.7 50.7 5.7 59.7 14.7 59.7 14.7 68.6 23.7 68.6 23.7 59.6 23.7 50.6 23.7 41.6 23.7 32.6 23.7 23.6 23.7 14.6 23.7 5.6 14.7 5.6"/>
+            <polygon v-if="right == 'right-4'"   fill="#000" class="logo-component" id="right-4" points="113.7 68.6 113.7 59.6 122.7 59.6 122.7 50.6 113.7 50.6 113.7 41.6 113.7 41.6 122.7 41.6 122.7 32.6 113.7 32.6 113.7 23.6 113.7 23.6 122.7 23.6 122.7 14.6 113.7 14.6 113.7 5.6 104.7 5.6 104.7 14.6 104.7 23.6 104.7 32.6 104.7 41.6 104.7 50.6 104.7 59.6 104.7 68.6 113.7 68.6"/>
+            <polygon v-if="left == 'left-3'"     fill="#000" class="logo-component" id="left-3" points="14.7 5.6 14.7 14.6 14.7 23.6 5.7 23.6 5.7 32.6 14.7 32.6 14.7 41.6 14.7 50.6 14.7 59.6 14.7 68.6 23.7 68.6 23.7 59.6 23.7 50.6 23.7 41.6 23.7 32.6 23.7 23.6 23.7 14.6 23.7 5.6 14.7 5.6"/>
+            <polygon v-if="right == 'right-3'"   fill="#000" class="logo-component" id="right-3" points="113.7 68.6 113.7 59.6 113.7 50.6 122.7 50.6 122.7 41.6 113.7 41.6 113.7 32.6 113.7 23.6 113.7 14.6 113.7 5.6 104.7 5.6 104.7 14.6 104.7 23.6 104.7 32.6 104.7 41.6 104.7 50.6 104.7 59.6 104.7 68.6 113.7 68.6"/>
+            <polygon v-if="left == 'left-2'"     fill="#000" class="logo-component" id="left-2" points="14.7 68.6 14.7 59.6 14.7 50.6 5.7 50.6 5.7 41.6 14.7 41.6 14.7 32.6 14.7 23.6 14.7 14.6 14.7 5.6 23.7 5.6 23.7 14.6 23.7 23.6 23.7 32.6 23.7 41.6 23.7 50.6 23.7 59.6 23.7 68.6 14.7 68.6"/>
+            <polygon v-if="right == 'right-2'"   fill="#000" class="logo-component" id="right-2" points="113.7 5.6 113.7 14.6 113.7 23.6 122.7 23.6 122.7 32.6 113.7 32.6 113.7 41.6 113.7 50.6 113.7 59.6 113.7 68.6 104.7 68.6 104.7 59.6 104.7 50.6 104.7 41.6 104.7 32.6 104.7 23.6 104.7 14.6 104.7 5.6 113.7 5.6"/>
+            <polygon v-if="left == 'left-1'"     fill="#000" class="logo-component" id="left-1" points="23.63 58.47 5.69 40.52 5.69 31.55 23.62 13.53 30 19.88 14.69 35.26 14.69 36.8 29.99 52.11 23.63 58.47"/>
+            <polygon v-if="right == 'right-1'"   fill="#000" class="logo-component" id="right-1" points="104.77 58.47 98.41 52.11 113.71 36.8 113.71 35.26 98.4 19.88 104.78 13.53 122.71 31.55 122.71 40.52 104.77 58.47"/>
+          </g>
+          <g id="typography">
+            <path fill="#000" d="m156.8,47.83c-1.59,1.74-3.91,2.85-7.19,2.85-7.45,0-10.41-5.13-10.41-13.11v-1.48c0-7.51,2.96-13.11,10.41-13.11,3.91,0,6.4,1.64,7.98,3.91l.58-3.22h7.45l-.48,7.93v19.56c0,7.72-4.12,11.79-12.95,11.79-9.36,0-12.47-4.49-12.47-10.15v-1.11h7.88c0,2.64.95,4.49,4.44,4.49,3.22,0,4.76-1.27,4.76-5.07v-3.28Zm0-6.98v-8.03c-.63-1-2.22-2.64-4.76-2.64-3.01,0-4.49,2.38-4.49,5.92v1.48c0,4.02,1.48,5.92,4.49,5.92,2.54,0,4.12-1.64,4.76-2.64Z"/>
+            <path fill="#000" d="m170.8,9.4h8.35v42.29h-8.35V9.4Z"/>
+            <path fill="#000" d="m200.93,48.78c-1.96,2.11-4.86,3.59-8.77,3.59-6.29,0-8.56-3.91-8.56-8.4v-.53c0-6.08,4.18-8.09,10.04-8.99l6.45-1c-.05-2.75-.95-4.12-3.81-4.12-3.01,0-3.75,1.74-3.75,3.59h-7.88v-.48c0-4.86,2.64-9.46,11.89-9.46s11.89,3.91,11.89,10.68v10.1l.53,7.93h-7.51l-.53-2.91Zm-.85-5.29v-5.13l-4.76.74c-2.59.42-3.44,1.64-3.44,3.33v.32c0,1.43.9,2.85,3.33,2.85s3.96-1.16,4.86-2.11Z"/>
+            <path fill="#000" d="m245.8,51.69v-17.97c0-2.22-1-3.54-3.33-3.54s-3.65,1.43-4.33,2.43v19.08h-8.3v-17.97c0-2.22-1-3.54-3.33-3.54s-3.65,1.43-4.28,2.43v19.08h-8.35v-20.09l-.48-7.93h7.45l.58,3.38c1.69-2.38,4.39-4.07,8.4-4.07,3.75,0,6.13,1.69,7.35,4.33,1.69-2.48,4.44-4.33,8.62-4.33,5.81,0,8.3,4.12,8.3,9.41v19.29h-8.3Z"/>
+            <path fill="#000" d="m281.37,40.69c.32,3.91,2.17,5.34,5.29,5.34,2.91,0,4.7-1.64,4.7-3.33h7.88v.21c0,5.34-4.55,9.46-12.63,9.46-9.3,0-13.58-5.87-13.58-13.95v-1.48c0-8.09,4.44-13.95,13.27-13.95s12.95,5.87,12.95,13.95v3.75h-17.87Zm.05-6.03h9.41c-.26-3.65-1.74-5.34-4.7-5.34s-4.44,1.69-4.7,5.34Z"/>
+            <path fill="#000" d="m312.13,9.4h8.35v42.29h-8.35V9.4Z"/>
+            <path fill="#000" d="m342.26,48.78c-1.96,2.11-4.86,3.59-8.77,3.59-6.29,0-8.56-3.91-8.56-8.4v-.53c0-6.08,4.18-8.09,10.04-8.99l6.45-1c-.05-2.75-.95-4.12-3.81-4.12-3.01,0-3.75,1.74-3.75,3.59h-7.88v-.48c0-4.86,2.64-9.46,11.89-9.46s11.89,3.91,11.89,10.68v10.1l.53,7.93h-7.51l-.53-2.91Zm-.85-5.29v-5.13l-4.76.74c-2.59.42-3.44,1.64-3.44,3.33v.32c0,1.43.9,2.85,3.33,2.85s3.96-1.16,4.86-2.11Z"/>
+            <path fill="#000" d="m363.5,26.05c1.59-1.85,3.86-3.07,7.19-3.07,7.66,0,10.41,5.66,10.41,13.74v1.9c0,8.09-2.75,13.74-10.41,13.74-3.91,0-6.4-1.69-7.98-4.07l-.58,3.38h-7.45l.48-7.93V9.4h8.35v16.65Zm0,16.49c.69,1,2.27,2.64,4.76,2.64,3.22,0,4.49-2.43,4.49-6.55v-1.9c0-4.12-1.27-6.55-4.49-6.55-2.48,0-4.07,1.64-4.76,2.64v9.73Z"/>
+            <rect fill="#000" x="259.54" y="34.93" width="8.35" height="8.35" transform="translate(302.82 -224.61) rotate(90)"/>
+          </g>
+        </mask>
+        <rect x="0" y="0" width="100%" height="100%" fill="#FFF" mask="url(#horizontalMask)" maskUnits="objectBoundingBox" />
+      </svg>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { toRefs } from 'vue'
+
+const props = defineProps({
+  left: {
+    type: String,
+    default: 'left-1'
+  },
+  right: {
+    type: String,
+    default: 'right-1'
+  },
+  center: {
+    type: String,
+    default: 'center-1'
+  },
+  color: {
+    type: String,
+    default: '#000'
+  },
+  bg: {
+    type: String,
+    default: ''
+  },
+  size: {
+    type: String,
+    default: '150'
+  },
+  position: {
+    type: String,
+    default: 'top left'
+  },
+  type: {
+    type: String,
+    default: 'bg'
+  },
+  dl: {
+    type: Boolean,
+    default: true
+  }
+});
+
+const { left, right, center } = toRefs(props)
+
+
+onMounted(() => {
+  const element = document.querySelector('#logo-horizontal-mask');
+  if (element) {
+    let backgroundImage = window.getComputedStyle(element).getPropertyValue('background-image');
+    if (backgroundImage.indexOf('url(') === 0) {
+      backgroundImage = backgroundImage.slice(4, -1).replace(/"/g, "");
+      var img = new Image();
+      img.crossOrigin = "Anonymous";
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = this.width;
+        canvas.height = this.height;
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0);
+        var dataURL = canvas.toDataURL();
+        element.style.backgroundImage = 'url(' + dataURL + ')';
+      };
+      img.src = backgroundImage;
+    }
+  }
+});
+</script>
+
+<style lang="scss" scoped>
+
+#icon *,
+#typography * { transition: fill .3s ease; }
+</style>
