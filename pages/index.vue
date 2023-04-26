@@ -4,7 +4,7 @@
       <cluster-l class="main-content">
         <section class="sidebar" :class="{'sidebar--expanded':status.accordion}">
           <div class="content__container">
-            <base-section class="logo-section" data-name="logo-mask-vertical" v-if="settings.attr[0] == 'bg'">
+            <base-section class="logo-section" data-name="logo-vertical" v-if="settings.attr[0] == 'bg'">
               <logo-horizontal-mask :dl="false" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]"/>
             </base-section> 
             <base-section v-else class="logo-section" data-name="logo-bg-vertical" :style="`background-color:${settings.attr[2]};`">
@@ -17,10 +17,14 @@
             <div class="sidebar__accordion">
               <p class="sidebar__title">Choose color pattern</p>
               <base-button visual="secondary" @click="generateRandomLogo">Generate Icon</base-button>
-              <cluster-l class="controls">
+              <cluster-l class="controls" space="var(--s1)" justify="center">
                 <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF', ['png'])">
                 </div>
                 <div class="color-group" color="2" @click="setColors('bg', 'bg-2', '#FFF', ['png'])">
+                </div>
+                <div class="color-group" color="4" @click="setColors('bg', 'bg-3', '#FFF', ['png'])">
+                </div>
+                <div class="color-group" color="5" @click="setColors('bg', 'bg-4', '#FFF', ['png'])">
                 </div>
                 <div class="color-group" color="3" @click="setColors('color', 'var(--base-color)', '#FFF', ['png', 'svg'])">
                   <span></span>
@@ -44,6 +48,7 @@
           </div>
           <base-button visual="secondary" @click="downloadLogosAsZip" target="_blank" class="button">Download icons</base-button>
           <base-button visual="secondary" href="#" target="_blank" class="button">Branding Guidelines</base-button>
+          <base-button visual="secondary" href="#" target="_blank" class="button">Typography</base-button>
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
         <div class="content__container">
@@ -52,8 +57,8 @@
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section" data-name="logo-mask-horizontal">
-            <logo-horizontal-clip :format="settings.attr[3]" name="logo-horizontal-mask" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]"/>
+          <base-section class="logo-section" data-name="logo-horizontal">
+            <logo-horizontal-clip :format="settings.attr[3]" name="logo-horizontal" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]"/>
           </base-section>  
         </div>
         <div class="content__container">
@@ -62,8 +67,8 @@
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section" data-name="logo-mask-vertical">
-            <logo-vertical-clip  :format="settings.attr[3]" name="logo-vertical-mask" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]" />
+          <base-section class="logo-section" data-name="logo-vertical">
+            <logo-vertical-clip  :format="settings.attr[3]" name="logo-vertical" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" :size="settings.attr[4]" :position="settings.attr[5]" />
           </base-section> 
         </div>
       </section>
@@ -74,7 +79,7 @@
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section" data-name="logo-mask-horizontal" :style="`background-color:${settings.attr[2]};`">
+          <base-section class="logo-section" data-name="logo-horizontal" :style="`background-color:${settings.attr[2]};`">
             <logo-horizontal :format="settings.attr[3]" name="logo-horizontal-black" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" />
           </base-section>
         </div>
@@ -84,7 +89,7 @@
           </base-section>
         </div>
         <div class="content__container">
-          <base-section class="logo-section" data-name="logo-mask-vertical" :style="`background-color:${settings.attr[2]};`">
+          <base-section class="logo-section" data-name="logo-vertical" :style="`background-color:${settings.attr[2]};`">
             <logo-vertical :format="settings.attr[3]" name="logo-vertical-black" :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[1]" />
           </base-section>
         </div>
@@ -108,6 +113,8 @@ const list3 = ['center-1', 'center-2', 'center-3', 'center-4', 'center-5', 'cent
 const patternList = [
   ['bg', 'bg-1', '#FFF', ['png']],
   ['bg', 'bg-2', '#FFF', ['png']],
+  ['bg', 'bg-3', '#FFF', ['png']],
+  ['bg', 'bg-4', '#FFF', ['png']],
   ['color', 'var(--base-color)', '#FFF', ['png', 'svg']]
 ]
 const positionList = ['top left', 'center top', 'top right', 'center left', 'center', 'center right', 'bottom left', 'center bottom', 'bottom right']
@@ -366,6 +373,14 @@ const downloadLogosAsZip = async () => {
   [color="3"] {
     --bg: var(--base-color);
     --icon: var(--white-color);
+  }
+  
+  [color="4"] {
+    --bg: url('/images/bg-3.png');
+  }
+  
+  [color="5"] {
+    --bg: url('/images/bg-4.png');
   }
 
   .controls { 
