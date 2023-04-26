@@ -17,7 +17,7 @@
             <div class="sidebar__accordion">
               <p class="sidebar__title">Choose color pattern</p>
               <base-button visual="secondary" @click="generateRandomLogo">Generate Icon</base-button>
-              <cluster-l class="controls" space="var(--s1)" justify="center">
+              <cluster-l class="controls" space="var(--s1)" justify="space-around">
                 <div class="color-group" color="1" @click="setColors('bg', 'bg-1', '#FFF', ['png'])">
                 </div>
                 <div class="color-group" color="2" @click="setColors('bg', 'bg-2', '#FFF', ['png'])">
@@ -114,8 +114,7 @@ const patternList = [
   ['bg', 'bg-1', '#FFF', ['png']],
   ['bg', 'bg-2', '#FFF', ['png']],
   ['bg', 'bg-3', '#FFF', ['png']],
-  ['bg', 'bg-4', '#FFF', ['png']],
-  ['color', 'var(--base-color)', '#FFF', ['png', 'svg']]
+  ['bg', 'bg-4', '#FFF', ['png']]
 ]
 const positionList = ['top left', 'center top', 'top right', 'center left', 'center', 'center right', 'bottom left', 'center bottom', 'bottom right']
 const randomList = ref([])
