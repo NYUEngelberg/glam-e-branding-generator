@@ -46,9 +46,17 @@
               </div>
             </div>
           </div>
-          <base-button visual="secondary" @click="downloadLogosAsZip" target="_blank" class="button">Download icons</base-button>
-          <base-button visual="secondary" href="#" target="_blank" class="button">Branding Guidelines</base-button>
-          <base-button visual="secondary" href="#" target="_blank" class="button">Typography</base-button>
+          <div class="color-list-container">
+            <stack-l class="color-list | margin-bottom:s1" space="var(--s0)">
+              <div class="color-list__item color-list__item--color1">#E341D7</div>
+              <div class="color-list__item color-list__item--color2">#264BEF</div>
+              <div class="color-list__item color-list__item--color3">#2ACEDB</div>
+              <div class="color-list__item color-list__item--color4">#2D94F1</div>
+            </stack-l>
+          </div>
+          <base-button visual="secondary" @click="downloadLogosAsZip" target="_blank" class="button">Download Logo</base-button>
+          <nuxt-link visual="secondary" to="/branding-guideline" target="_blank" class="button">Branding Guidelines</nuxt-link>
+          <a visual="secondary" href="https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/" target="_blank" class="button">Typography</a>
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
         <div class="content__container">
@@ -309,10 +317,12 @@ const downloadLogosAsZip = async () => {
     width: 360px;
     padding: var(--s1) var(--s2);
     height: 100%;
+    max-height: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     gap: var(--s1);
+    overflow-y: auto;
   }
 
     .sidebar__title {
@@ -486,6 +496,44 @@ const downloadLogosAsZip = async () => {
         font-weight: 700;
       }
     }
+
+  .color-list__item {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--s1);
+    font-size: 0.75em;
+    font-weight: 400;
+    &::before {
+      content: '';
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+    }
+  }
+
+  .color-list__item--color1 {
+    &::before {
+      background-color: #E341D7;
+    }
+  }
+
+  .color-list__item--color2 {
+    &::before {
+      background-color: #264BEF;
+    }
+  }
+
+  .color-list__item--color3 {
+    &::before {
+      background-color: #2ACEDB;
+    }
+  }
+
+  .color-list__item--color4 {
+    &::before {
+      background-color: #2D94F1;
+    }
+  }
 
   .hidden {
     display: none;
