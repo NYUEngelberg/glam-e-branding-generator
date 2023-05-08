@@ -317,12 +317,10 @@ const downloadLogosAsZip = async () => {
     width: 360px;
     padding: var(--s1) var(--s2);
     height: 100%;
-    max-height: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     gap: var(--s1);
-    overflow-y: auto;
   }
 
     .sidebar__title {
@@ -347,11 +345,31 @@ const downloadLogosAsZip = async () => {
       overflow: hidden;
       height: 0;
       transition: height 0.3s ease-out;
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background: none;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: hsla(var(--base-hsl), 0.0);
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: hsla(var(--base-hsl), 0.5);
+      }
+    }
+
+    .sidebar__accordion:hover {
+      &::-webkit-scrollbar-thumb {
+        background: hsla(var(--base-hsl), 0.5);
+      }
     }
 
     .sidebar--expanded {
       .sidebar__accordion {
-        height: 100%;
+        height: calc(100vh - 650px);
+        overflow-y: visible;
       }
       .accordion-trigger::after {
         transform: rotateX(180deg);
