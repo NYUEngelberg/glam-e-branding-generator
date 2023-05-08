@@ -60,7 +60,7 @@
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
         <div class="content__container">
-          <base-section class="logo-section | logo--png" data-name="logo-horizontal-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
+          <base-section class="logo-section | logo--png" data-name="logo-horizontal-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: cover; background-position: center;`">
             <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]"/>
           </base-section>
         </div>
@@ -70,7 +70,7 @@
           </base-section>  
         </div>
         <div class="content__container">
-          <base-section class="logo-section | logo--png" data-name="logo-vertical-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: 100% auto; background-position: center;`">
+          <base-section class="logo-section | logo--png" data-name="logo-vertical-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: background-size: cover; background-position: center;`">
             <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" />
           </base-section>
         </div>
@@ -370,6 +370,9 @@ const downloadLogosAsZip = async () => {
       .sidebar__accordion {
         height: calc(100vh - 650px);
         overflow-y: visible;
+        border-bottom: 1px solid hsla(0, 0%, 85%, 1);
+        border-top: 1px solid hsla(0, 0%, 85%, 1);
+        padding-block: var(--s0);
       }
       .accordion-trigger::after {
         transform: rotateX(180deg);
@@ -379,6 +382,14 @@ const downloadLogosAsZip = async () => {
   .sidebar__spacer {
     flex-grow: 1;
     width: 100%;
+  }
+  
+  .sidebar__divider {
+    width: 100%;
+    height: 0;
+    display: block;
+    border-top: 1px solid hsla(0, 0%, 85%, 1);
+    margin-block: var(--s0);
   }
 
   .content {
