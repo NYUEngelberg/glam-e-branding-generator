@@ -56,6 +56,14 @@
                     <li>Pink</li>
                     <li>Green</li>
                   </ul>
+                  <!--<div class="color-list-container">
+                    <stack-l class="color-list | margin-bottom:s1" space="var(--s0)">
+                      <div class="color-list__item color-list__item--color1">#E341D7</div>
+                      <div class="color-list__item color-list__item--color2">#264BEF</div>
+                      <div class="color-list__item color-list__item--color3">#2ACEDB</div>
+                      <div class="color-list__item color-list__item--color4">#2D94F1</div>
+                    </stack-l>
+                  </div>-->
                   <h3>Secondary colors</h3>
                   <p>Secondary colors are meant to be used as support colors. </p>
                   <p>Support colors are:</p>
@@ -173,4 +181,42 @@ const settings = reactive({
 
   img { margin-block: var(--s3); }
 
+
+  .color-list__item {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--s1);
+    font-size: 0.75em;
+    font-weight: 400;
+    &::before {
+      content: '';
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+    }
+  }
+
+  .color-list__item--color1 {
+    &::before {
+      background-color: #E341D7;
+    }
+  }
+
+  .color-list__item--color2 {
+    &::before {
+      background-color: #264BEF;
+    }
+  }
+
+  .color-list__item--color3 {
+    &::before {
+      background-color: #2ACEDB;
+    }
+  }
+
+  .color-list__item--color4 {
+    &::before {
+      background-color: #2D94F1;
+    }
+  }
 </style>

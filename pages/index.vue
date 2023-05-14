@@ -46,21 +46,13 @@
               </div>
             </div>
           </div>
-          <div class="color-list-container">
-            <stack-l class="color-list | margin-bottom:s1" space="var(--s0)">
-              <div class="color-list__item color-list__item--color1">#E341D7</div>
-              <div class="color-list__item color-list__item--color2">#264BEF</div>
-              <div class="color-list__item color-list__item--color3">#2ACEDB</div>
-              <div class="color-list__item color-list__item--color4">#2D94F1</div>
-            </stack-l>
-          </div>
           <base-button visual="secondary" @click="downloadLogosAsZip" target="_blank" class="button">Download Logo</base-button>
           <nuxt-link visual="secondary" to="/branding-guideline" target="_blank" class="button">Branding Guidelines</nuxt-link>
           <a visual="secondary" href="https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/" target="_blank" class="button">Typography</a>
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
         <div class="content__container">
-          <base-section class="logo-section | logo--png" data-name="logo-horizontal-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: cover; background-position: center;`">
+          <base-section class="logo-section | logo--png" data-name="logo-horizontal-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-size: cover; background-position: center;`">
             <logo-horizontal :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]"/>
           </base-section>
         </div>
@@ -70,7 +62,7 @@
           </base-section>  
         </div>
         <div class="content__container">
-          <base-section class="logo-section | logo--png" data-name="logo-vertical-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-color: ${settings.attr[1]}; background-size: background-size: cover; background-position: center;`">
+          <base-section class="logo-section | logo--png" data-name="logo-vertical-bg" :style="`background-image:url(/images/${settings.attr[1]}.png); background-size: cover; background-position: center;`">
             <logo-vertical :left="randomList[0]" :right="randomList[1]" :center="randomList[2]" :color="settings.attr[2]" :bg="settings.attr[1]" />
           </base-section>
         </div>
@@ -368,7 +360,7 @@ const downloadLogosAsZip = async () => {
 
     .sidebar--expanded {
       .sidebar__accordion {
-        height: calc(100vh - 650px);
+        height: calc(100vh - 435px);
         overflow-y: visible;
         border-bottom: 1px solid hsla(0, 0%, 85%, 1);
         border-top: 1px solid hsla(0, 0%, 85%, 1);
@@ -525,44 +517,6 @@ const downloadLogosAsZip = async () => {
         font-weight: 700;
       }
     }
-
-  .color-list__item {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: var(--s1);
-    font-size: 0.75em;
-    font-weight: 400;
-    &::before {
-      content: '';
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-    }
-  }
-
-  .color-list__item--color1 {
-    &::before {
-      background-color: #E341D7;
-    }
-  }
-
-  .color-list__item--color2 {
-    &::before {
-      background-color: #264BEF;
-    }
-  }
-
-  .color-list__item--color3 {
-    &::before {
-      background-color: #2ACEDB;
-    }
-  }
-
-  .color-list__item--color4 {
-    &::before {
-      background-color: #2D94F1;
-    }
-  }
 
   .hidden {
     display: none;
