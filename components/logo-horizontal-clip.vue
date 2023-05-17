@@ -1,6 +1,6 @@
 <template>
   <div class="logo-container" :data-name="name" :class="{'logo--png': format.includes('png')}">
-    <div class="logo-builder" :style="`position: relative; width: 395px; overflow: hidden; display: flex; justify-content: center; align-items: center; aspect-ratio: 6.8/1;background-image: url(/images/${bg}.png); background-size: ${size}% auto; background-position: ${position}; height: auto; object-fit: cover; clip-path: url('#cliphorizontal');`">
+    <div class="logo-builder" :style="`position: relative; width: 395px; overflow: hidden; display: flex; justify-content: center; align-items: center; aspect-ratio: 6/1;background-image: url(/images/${bg}.png); background-size: ${size}% auto; background-position: ${position}; height: auto; object-fit: cover; clip-path: url('#cliphorizontal');`">
       <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
         <defs>
           <clipPath id="cliphorizontal">
