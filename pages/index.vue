@@ -49,6 +49,7 @@
           <base-button visual="secondary" @click="downloadLogosAsZip" target="_blank" class="button">Download Logo</base-button>
           <nuxt-link visual="secondary" to="/branding-guideline" target="_blank" class="button">Branding Guidelines</nuxt-link>
           <a visual="secondary" href="https://www.cooperhewitt.org/open-source-at-cooper-hewitt/cooper-hewitt-the-typeface-by-chester-jenkins/" target="_blank" class="button">Typography</a>
+          <a visual="secondary" href="https://docs.google.com/document/d/1h9fc3t_rDIEc72UBjHuLaAUrOSyA41xr4L_ctW-aqG0/edit?usp=sharing" target="_blank" class="button">Template</a>
       </section>
       <section class="content" v-if="settings.attr[0] == 'bg'">
         <div class="content__container">
@@ -360,7 +361,7 @@ const downloadLogosAsZip = async () => {
 
     .sidebar--expanded {
       .sidebar__accordion {
-        height: calc(100vh - 435px);
+        height: calc(100vh - 500px);
         overflow-y: visible;
         border-bottom: 1px solid hsla(0, 0%, 85%, 1);
         border-top: 1px solid hsla(0, 0%, 85%, 1);
